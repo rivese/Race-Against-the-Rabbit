@@ -1,0 +1,58 @@
+<script>
+
+
+    var distance = 10;
+    var turtle = new Animal('Beth', 2, 4);
+    var rabbit = new Animal('Henry', 5, 2);
+   
+    /**
+     * Creates an animal to engage in a race. If an animal's focus is greater than
+     * its speed, it has an advantage over its contestant. 
+     * 
+     * @param {string} alias  name of the animal
+     * @param {integer} speed  how fast the animal runs
+     * @param {integer} focus  how often the animal runs
+     * @returns {integer} position  how far the animal has run 
+     */
+    function Animal(alias, speed, focus) {
+
+        this.alias = alias;
+        this.speed = speed;
+        this.focus = focus;
+        this.focusMultiplier = this.focus > this.speed ? 4 : 1;
+        this.position = 0;
+        this.run = function() {
+            if ((Math.random() * 10) < (this.focus * this.focusMultiplier)) {
+                this.position += this.speed; 
+            }
+            return this.position;
+        }
+        this.report = function() {
+            alert(this.alias + ' is at: ' + this.position);
+        }
+    };
+
+    /**
+     * Performs the main race simulation.
+     */
+    function race(animal1, animal2) {
+
+        while (animal1.position < distance && animal2.position < distance) {
+
+            animal1.run(), animal1.report();
+            animal2.run(), animal2.report();
+        };
+    
+        if (animal1.position >= distance) {
+            alert(animal1.alias + ' won');
+        } else {
+            alert(animal2.alias + ' won');
+        };
+    };
+
+
+    race(turtle, rabbit);
+
+
+</script>
+
