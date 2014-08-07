@@ -9,10 +9,10 @@
      * Creates an animal to engage in a race. If an animal's focus is greater than
      * its speed, it has an advantage over its contestant. 
      * 
-     * @param {string} alias  name of the animal
-     * @param {integer} speed  how fast the animal runs
-     * @param {integer} focus  how often the animal runs
-     * @returns {integer} position  how far the animal has run 
+     * @param {String} alias  name of the animal
+     * @param {Integer} speed  how fast the animal runs
+     * @param {Integer} focus  how often the animal runs
+     * @return {Integer} position  how far the animal has run 
      */
     function Animal(alias, speed, focus) {
 
@@ -34,6 +34,9 @@
 
     /**
      * Performs the main race simulation.
+     * 
+     * @param {Object} animal1  the first animal to race
+     * @param {Object} animal2  the second animal to race
      */
     function race(animal1, animal2) {
 
